@@ -1,920 +1,477 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAPPY HOURS SCHOOL</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #CCCCCC; 
-  }
-
-  .navbar {
-    background-color: #333;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    height: 80px;
-  }
-
-  .navbar a {
-    color: #f2f2f2;
-    text-align: center;
-    flex: 1;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 60px;
-    transition: background-color 0.05s, color 0.05s;
-    border-radius: 55px;
-  }
-
-  .navbar a:hover {
-    color: #333;
-  }
-
-  .navbar a.active {
-    background-color: #f5f5f5;
-    color: #333;
-  }
-
-  .content {
-    padding-top: 80px; /* Adjust for the height of the navbar */
-    height: calc(100vh - 80px); /* Set height of content to 100% viewport height minus navbar height */
-    overflow-y: auto; /* Add scrollbar if content exceeds viewport height */
-  }
-  #logo{
-    height:140px;
-    width:140px;
-    border-radius:50%;
-    margin-left:9px;
-    
-  }
-  .logo{
-    margin-top: 20px;
-    animation : logoanimation 1s ease-in-out;
-    
-  }
-@keyframes logoanimation {
-    from { transform: translateX(-20px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-  #hh{
-    margin-left:165px;
-    font-size:45px;
-    font-weight:bolder;
-    margin-top: -100px;
-    position: relative;
-    color: #CCCCCC;
-    -webkit-text-stroke: 0.3vw #AAAAAA;
-    text-transform: uppercase;
-    margin-right:7px;
-    animation : headerAnimation 1s ease-in-out;
-  }
-@keyframes headerAnimation {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-  #hh::before
-  {
-    content: attr(data-text);
-
-position: absolute;
-
-top: 0;
-
-Left: 0;
-
-width: 8;
-
-height: 100%;
-
-color: #333;
-
--webkit-text-stroke: evw #383d52;
-
-border-right: 2px solid #333;
-
-overflow: hidden;
-    
-
-animation: animate 4s linear 1.55; 
-  }
- @keyframes animate{
-   0%, 10%, 100%{
-     width:0;
-   }
-   70%, 90%{
-     width:100%;
-   }
-}
-  
-  
-  
-  
-  #ems{
-    display:flex;
-    margin-left:165px;
-    font-size:21px;
-    font-family: Arial, sans-serif;
-    color: #333; /* Dark gray text color */
- }
-
-  
-  #cbse{
-    font-weight : bold;
-     
-  }
-  #address{
-    height : 38px;
-    display:flex;
-    align-items : center;
-    color : #000000 ;
-    font-size: 20px;
-    margin-left: 20px;
-    animation : addressanimation 1s ease-in-out;
-  }
-  .address{
-    color : #666;
-    font-size: 17px;
-    margin-left: 15px;
-    animation : addressanimation 1s ease-in-out;
-  }
-  @keyframes addressanimation {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-  #sclimage{
-    height :330px;
-    width: 489.5px;
-    background-image: url( "background-2.jpg" );
-    background-size :contain;
-    background-repeat: no-repeat;
-    margin-left:9.5px;
-    animation : sclimganimation 1s ease-in-out;
-
-  }
-@keyframes sclimganimation {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-  #text{
-    font-size:50px;
-    height: 200px;
-    width:300px;
-    display:flex;
-    align-items:center;
-    margin-left:40px;
-    font-family: cursive;
-    margin-top: -355px;
-    color: #C1B2AB;
-    
-  }
-  #space{
-    height:165px;
-  }
-  #nav{
-    background-color: #706C61;
-    height:50px;
-    width:100%;
-  }
-  
-  
-    .slideshow-container {
-    overflow: hidden;
-      background-color: #A8A394;
-      height:750px;
-      padding-top:80px;
-      z-index:-1;
-     
-  }
-
-  .slides {
-    display: flex; 
-    width:700px;
-    /* Adjust this value based on the number of photos */
-    animation: slide 17s linear infinite; /* Adjust animation duration as needed */
-    margin-top:20px;
-    margin-bottom:20px;
-  }
-.sliderwidth{
-  width:20px;
-  
-}
-
-  .slides img {
-    width: 300px;
-    height: 300px;
-    margin-left:130px;
-    border-radius:20px;
-    opacity:0.8;
-  }
-
-
-  @keyframes slide {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%); /* Adjust this value based on the number of photos */
-    }
-  }
-  
-  #news{ 
-    height:700px;
-    width : 450px;
-    background: linear-gradient(to top , #CCCCCC , #A8A394 , #F8F4E3) ;
-    margin-top: -10px;
-    margin-left:5%;
-    border-radius:35px;
-    z-index:1;
-    backdrop-filter:blur;
-  }
-  
-  
-  #title{
-    height:100x;
-    width:100%;
-    background-color:white;
-    padding-top:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:35px;
-    padding-bottom:20px;
-    font-size:22px;
-    font-weight:bolder;
-    
-  }
-  
-  
-  .news-bar {
-    
-    padding: 20px;
-    overflow: hidden;
-    height:592px;
-    border-radius:35px;
-    
-  }
-
-  .news-bar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    animation: scrollNews 43s linear infinite; /* Adjust duration as needed */
-  }
-
-  .news-bar li {
-    margin-bottom: 10px; /* Adjust spacing between news items */
-    font-size: 20px;
-    font-weight:bold;
-    color:#2A2B2A;
-  }
-
-  @keyframes scrollNews {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  }
-
-.inf{
-  height :2170px;
-  width:90%;
-  margin-left: 25px;
-  border-radius:10px;
-    box-shadow: 20px 20px 60px ;
-  margin-top:-60px;
-}
-#inf{
-  margin-left : 15px;
-  padding-top:10px;
-  font-size : 34px;
-  font-family:serif;
-
-  }
-
-
-html {
-  scroll-snap-type: y mandatory;
-}
-
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  height:305px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size:25px;
-  font-family:serif;
-  padding-left:8px;
-}
-
-section:nth-of-type(even) {
-  color: white;
-  background: black;
-  
-}
-
-section:nth-of-type(odd) {
-  color: black;
-  background: white;
-  
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  font-size: 4rem;
-}
- #sectionimg{
-   height:200px;
-   width:200px;
-   margin-left:20px;
-   border-radius: 20px;
- }
-
-
-
-
-.block {
-  height: 2em;
-  line-height: 2.2em;
-  width: 5em;
-  background: #464646;
-  color: #fdfdfd;
-  text-align: center;
-  margin: 1em auto;
-  animation : animate 1s linear 1;
-}
-@keyframes animate1{
-  from { 
-    visibility:hidden;
-    animation-play-state: paused;
-}
-  to {
-    visibility: visible;
-    animation-duration:1s;
-    animation-play-state: running;
-  }
-}
-  
-
-
-article {
-  /*  leverage cascade for cross-browser gradients  */
-  background: radial-gradient(
-    hsl(100 100% 60%), 
-    hsl(200 100% 60%) 
-  ) fixed;
-  background: conic-gradient(
-    hsl(100 100% 60%), 
-    hsl(200 100% 60%), 
-    hsl(100 100% 60%) 
-  ) fixed;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-} 
-
-.gradient{
-  background: hsl(204 100% 5%);
-  color: white;
-  min-block-size: 200vh;
-  min-inline-size: 100%;
-  padding: 5vmin;
-  box-sizing: border-box;
-  display: grid;
-  place-content: center;
-  font-family: system-ui;
-  font-size: min(200%, 5vmin);
-}
-
-h1, p, body {
-  margin: 0;
-}
-
-#h1 {
-  font-size: 10vmin;
-  line-height: 1.1;
-  max-inline-size: 15ch;
-  margin: 110px;
-  
-}
-
-#p {
-  font-family: "Dank Mono", ui-monospace, monospace;
-  margin-top: 1ch;
-  line-height: 1.35;
-  max-inline-size: 40ch;
-  margin: auto;
-}
-
-
-#t2{
-  border-radius:50%;
-  object-fit:cover; 
-  height:230px;
-  width:230x;
-  margin-top:85px;
-  margin-left:   ;
-}
-#t3{
-  border-radius:50%;
-  object-fit:contain; 
-  height: 100px;
-  width:100px;
-}
-#t4{
-  border-radius:50%;
-  object-fit:contain; 
-  height:170px;
-  width:170px;
-  margin-top:50px;
-  margin-left:250px;
-}
-#t5{
-  border-radius:50%;
-  object-fit:contain; 
-  height:110px;
-  width:110px;
-  
-}
-
-#t6{
-  border-radius:50%;
-  object-fit:contain; 
-  height:140px;
-  width:140px;
-}
-
-
-</style>
-</head>
-<body>
-
-<div class="navbar">
-  <a href="#home" onclick="scrollToTop()">Home</a>
-  <a href="http://happy-hours.in/details/mandatory-disclosure">About</a>
-  <a href="https://maps.app.goo.gl/vc8JTL5ukZdAAVTJ6">location</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<div class="content" id="content">
-  
-  <div class="logo">
-  <img src="logo.png" alt="logo" id="logo" >
-  </div>
-  
-    <div id="hh" data-text="HAPPY_HOURS">
-    HAPPY_HOURS 
-  </div>
-  <div id="ems">
-    English Medium School <div id="cbse">, C.B.S.E.</div><pre> </pre>  
-  </div>
-  
-  <div id="address">
-      Prayas Campus , Chourai Road</br>
-      Amarwara, Dist. Chhindwara</br> 
-  </div>
-<div class="address"> •Affilliated to Central Board of Secondary Education (cbse)</div>
-    
-
-</br>
-<hr/>
-  
-<div id="sclimage"></div>
-  
-  <div id="text">
-    OUR SCHOOL
-    Our Pride 
-  </div>
-
-  
-  
-
-
-<div id="space"></div>
-
-
-<div id="nav">
-</div>
-
-
-<div class="slideshow-container">
-
- 
-  
-  
- 
-  
-  
-  <div id="news" >
-    <div id="title">
-      Recent News & Updates
-    </div>
-     
-    
-    
-    <div class="news-bar">
-  <ul>
-    <li>28/11/19 :- Inter school Kabaddi at Happy Hours 	</li></br>
-    <li>28/11/19 :- Inter school Kabaddi of CBSE schools </li></br>
-    <li>01/02/20 :- Annual Function 2020 </li></br>
-    <li>14/09/20 :-Hindi Diwas -Drawing competition -Manthan Winner </li></br>
-    <li>14/09/20 :-Hindi Diwas -Drawing competition -Fiza winner</li></br>
-    <li>14/09/20 :- Happy Hours student won the competiton </li></br>
-    <li>11/08/21 :- 100% pass results in cbse class X exam of 2021</li></br>
-    <li>22/07/22 :- Ashutosh Mishra top with 97% in CBSE class X exam 2022</li></br>
-    <li>12/05/23 :- Excellent Result of Happy Hours English Medium School</li></br>
-    ...
-     <li>28/11/19 :- Inter school Kabaddi at Happy Hours 	</li></br>
-    <li>28/11/19 :- Inter school Kabaddi of CBSE schools </li></br>
-    <li>01/02/20 :- Annual Function 2020 </li></br>
-    <li>14/09/20 :-Hindi Diwas -Drawing competition -Manthan Winner </li></br>
-    <li>14/09/20 :-Hindi Diwas -Drawing competition -Fiza winner</li></br>
-    <li>14/09/20 :- Happy Hours student won the competiton </li></br>
-    <li>11/08/21 :- 100% pass results in cbse class X exam of 2021</li></br>
-    <li>22/07/22 :- Ashutosh Mishra top with 97% in CBSE class X exam 2022</li></br>
-    <li>12/05/23 :- Excellent Result of Happy Hours English Medium School</li></br>
-
-    <li>28/11/19 :- Inter school Kabaddi at Happy Hours 	</li></br>
-    <li>28/11/19 :- Inter school Kabaddi of CBSE schools </li></br>
-    <li>01/02/20 :- Annual Function 2020 </li></br>
-    <li>14/09/20 :-Hindi Diwas -Drawing competition -Manthan Winner </li></br>
-    <li>14/09/20 :-Hindi Diwas -Drawing competition -Fiza winner</li></br>
-    <li>14/09/20 :- Happy Hours student won the competiton </li></br>
-    <li>11/08/21 :- 100% pass results in cbse class X exam of 2021</li></br>
-    <li>22/07/22 :- Ashutosh Mishra top with 97% in CBSE class X exam 2022</li></br>
-    <li>12/05/23 :- Excellent Result of Happy Hours English Medium School</li></br>
-  </ul>
-</div>
-    
-    
-    
-    
-  </div>
- 
-</div>
-
-</br></br>
-
-
-<div class="inf">
-<h1 id="inf">Infastructure & Facilities</h1>
-  
-  <section>
-  <div>TOP-FACULTIES :- </div>
-    <img src="faculty.jpg"  id="sectionimg">
-</section>
-<section>
-  <div>seperate-Library :- </div>
-      <img src="library-geotag.jpg"  id="sectionimg">
-</section>
-<section>
-  <div>Transportation :- </div>
-      <img src="photo4.png"  id="sectionimg">
-</section>
-<section>
-  <div>seperate toilet for girls&boys :-</div>
-      <img src="toilet.jpg"  id="sectionimg">
-</section>
-<section>
-  <div>playground :-</div>
-      <img src="photo2.jpg"  id="sectionimg">
-</section>
-  <section>
-  <div>water-service :-</div>
-      <img src="water.jpg"  id="sectionimg">
-</section>
-  <section>
-  <div>Laboratory :-</div>
-      <img src="lab.jpg"  id="sectionimg">
-</section>
-  
-  
-  
-</div></br></br>
-
-<div class="gradient">
-<article>
-  <h1 id="h1">MEET OUR TOP-RANKERS</h1>
-    
-  <img src="Ashutosh2.jpg" id ="t4">
-  
-    <img src="SheehanSeemaSadiq2.jpg" id ="t2">
-      <img src="HimanshuPathak2.jpg" id ="t5">
-    <img src="DishaKhurana.JPG2.png" id ="t3">
-    
-    <img src="molly2.jpg" id ="t6">
-</article>
-</div>
-
-
-
-
-<div class="sliderwidth">
-  <div class="slides">
-    <img src="photo1.jpg" alt="Photo 1">
-    <img src="photo2.jpg" alt="Photo 2">
-    <img src="photo3.png" alt="Photo 3">
-    <img src="photo4.png" alt="Photo 4">
-    <img src="photo5.jpg" alt="Photo 5">
-    <img src="photo6.jpg" alt="Photo 6">
-    <img src="photo7.jpg" alt="Photo 7">
-      <img src="photo1.jpg" alt="Photo 1">
-  </div>
-</div>
-
-
-
-
-<script>
-
-
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  var links = document.querySelectorAll('.navbar a');
-  links.forEach(function(link) {
-    link.addEventListener('click', function() {
-      links.forEach(function(item) {
-        item.classList.remove('active');
-        item.style.color = '#f2f2f2';
-      });
-      this.classList.add('active');
-      setTimeout(function() {
-        links.forEach(function(item) {
-          item.classList.remove('active');
-          item.style.color = '#f2f2f2';
-        });
-      }, 50);
-    });
-  });
-
-
-const slides = document.querySelector('.slides');
-  const slideWidth = slides.scrollWidth / 2;
-  slides.style.animation = `slide ${20* slideWidth / 1000}s linear infinite`;
-
-  
-</script>
-
-</body>
-</html>    -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our School</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- <style>
-        /* Reset default browser styles */
-        body, h1, h2, p, ul, li {
+    <title>Check-in</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-bottom: 30px;
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            background-color: #191919; /* Dark grey background */
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 1);
+            backdrop-filter: blur(100px);
+            max-width: 400px;
+            width: 90%;
+            margin-top: 50px;
+            min-height: 100px;
+            max-height: 2000px;
+            overflow: auto;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        button:hover:disabled {
+            background-color: #999;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+
+        #rewardPoints {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        #points {
+            color: #ff6600;
+            font-weight: bold;
+        }
+
+        #resetBtn {
+            margin-top: 20px;
+            background-color: #333;
+            width: 135px;
+            height: 27px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 32.8%;
+            color: orange;
+        }
+
+        #resetBtn:hover {
+            background-color: #555;
+          
+        }
+
+        #checkInBtn {
+            width: 260px;
+            background-color: green;
+            height: 70px;
+        }
+
+        #timer {
+            margin-top: 20px;
+            font-size: 18px;
             color: #fff;
         }
 
-        header {
-            background-image: url('header_bg.jpg');
-            background-size: cover;
-            padding: 20px 0;
-            text-align: center;
+        #progressBar {
+            margin-top: 20px;
+            height: 20px;
+            background-color: #555;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        h1, h2 {
-            background: linear-gradient(to right, #ffffff, #4d94ff, #0039e6, #ffffff); /* Gradient text color */
-            -webkit-background-clip: text; /* Clip text to the background size */
-            -webkit-text-fill-color: transparent; /* Fill text with transparent color */
+        #progressBarFill {
+            height: 100%;
+            background-color: #ff6600;
+            width: 0;
+            transition: width 0.5s;
+        }
+
+        #taskInput {
+            margin-top: 20px;
+            width: 100%;
+            height: 120px;
             margin-bottom: 20px;
+            font-size: 40px;
         }
 
-        nav ul {
-            list-style-type: none;
-            text-align: center;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, #4d94ff, #0039e6, #ffffff); /* Gradient background for nav */
-            -webkit-background-clip: text; /* Clip text to the background size */
-            -webkit-text-fill-color: transparent; /* Fill text with transparent color */
+        .task-content {
+            font-size: 40px;
+            color: white;
         }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff; /* White nav link color */
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ccc; /* Light grey on hover */
-        }
-
-        section {
-            padding: 40px;
-            margin-bottom: 40px;
-            border-radius: 10px; /* Rounded corners */
-            background-size: cover;
-            background-position: center;
-        }
-
-        #home {
-            background-image: url('background-2.jpg'); /* Replace with "background-2.jpg" */
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        }
-
-        #about {
-            background-image: url('about_bg.jpg');
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        }
-
-        #courses {
-            background-image: url('courses_bg.jpg');
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        }
-
-        #toppers {
-            background-image: url('toppers_bg.jpg');
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        }
-
-        #contact {
-            background-image: url('contact_bg.jpg');
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        }
-
-        .gallery {
+        .task {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
         }
 
-        .gallery img {
-            width: 300px;
-            margin: 10px;
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Light shadow */
-            transition: transform 0.3s ease;
+        .delete-btn {
+            background-color: #555;
+            padding: 6px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .gallery img:hover {
-            transform: scale(1.05); /* Scale up on hover */
+        .delete-btn:hover {
+            background-color: #333;
         }
 
-        .topper-gallery {
+        .absent-entry {
+            height: 40px;
+            width: 100%;
+            font-size: 30px;
+            color: white;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
         }
 
-        .topper-gallery img {
-            width: 200px;
-            margin: 10px;
-            border-radius: 50%; /* Circular shape */
-            border: 5px solid #8c6239; /* Dark brown border */
-            transition: transform 0.3s ease;
+        .delete-absent-btn {
+            background-color: red;
+            padding: 6px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .topper-gallery img:hover {
-            transform: scale(1.1); /* Scale up on hover */
+        .delete-absent-btn:hover {
+            background-color: #c62828;
         }
-
-        footer {
-            background-color: #333; /* Dark grey footer background */
-            color: #ccc; /* Light grey footer text color */
-            text-align: center;
-            padding: 20px 0;
+  
+        #absentBtn{
+          background-color: red;
+          margin-top: 20px;
+          height: 60px;
+          width: 150px;
         }
-
-        /* Specific places with cursive font */
-        .special-text {
-            background: linear-gradient(to right, #ffcc00, #ffff00, #ffffff); /* Gradient text color */
-            -webkit-background-clip: text; /* Clip text to the background size */
-            -webkit-text-fill-color: transparent; /* Fill text with transparent color */
-            font-family: cursive;
-            font-size: 1.5em; /* Increase font size */
-        }
-  #logo{
-    height:150px;
-    width:150px;
-  }
-    </style>->
-<script type='text/javascript' src='//pl22854131.profitablegatecpm.com/87/64/d1/8764d1c5636f7ac21e6640d4810a2990.js'></script>
-<script type='text/javascript' src='//pl22854131.profitablegatecpm.com/87/64/d1/8764d1c5636f7ac21e6640d4810a2990.js'></script>
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our School</h1>
-      <!--    </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#toppers">Topper Success</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <section id="home">
-        <h2>Home</h2>
-        <p>Welcome to Our School, where <span class="special-text">excellence</span> meets education.</p>
-        <div class="gallery">
-            <img src="logo1.png" alt="School Logo" style="border-radius: 50%;" id="logo"> <!-- Apply border-radius ->
-            <img src="school_photo2.jpg" alt="School Photo">
-            <img src="school_photo3.jpg" alt="School Photo">
-        </div>
-    </section>
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Learn about our mission, vision, and values.</p>
-    </section>
-    <section id="courses">
-        <h2>Our Courses</h2>
-        <p>Explore our wide range of courses tailored to meet every students needs.</p>
-    </section>
-    <section id="toppers">
-        <h2>Topper Success</h2>
-        <p>Celebrating the achievements of our top-performing students.</p>
-        <div class="topper-gallery">
-            <img src="topper1.jpg" alt="Topper Photo">
-            <img src="topper2.jpg" alt="Topper Photo">
-            <img src="topper3.jpg" alt="Topper Photo">
-        </div>
-    </section>
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Get in touch with us</p>
-    </section>
-    <footer>-->
-          <script type="text/javascript">
-	atOptions = {
-		'key' : 'f0e4ce358072a8ec80b1100f5e75159f',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/f0e4ce358072a8ec80b1100f5e75159f/invoke.js"></scr' + 'ipt>');
+<div class="container">
+    <h1>Welcome to our Check-in tool!</h1>
+    <p>It basically helps you to store data on a daily basis.</p>
+    <button id="checkInBtn">Check-in</button><br/>
+    <!-- Absent button and absent dates -->
+    <button id="absentBtn">Absent</button>
+
+    <div id="resetBtn">Reset Attendance</div>
+    <div id="rewardPoints">Total Attendance: <span id="points">0</span></div>
+    <div id="timer">Time remaining: <span id="countdown">15:00:00</span></div>
+    <div id="progressBar">
+        <div id="progressBarFill"></div>
+    </div>
+
+    <!-- Task input and save button -->
+    <textarea id="taskInput" rows="4" cols="30" placeholder="type here..."></textarea>
+
+    <br>
+    <button id="saveTaskBtn">Save Dates</button>
+
+    <!-- Task list -->
+    <div id="taskList"></div>
+
+    <div id="absentDates"></div>
+
+</div>
+
+<script>
+    let timer;
+    let countdown = 15 * 60 * 60; // 15 hours countdown in seconds
+    let rewardPoints = 0;
+    let lastCheckInTime;
+
+    // Function to initialize reward points and last check-in time
+    function initializeData() {
+        // Retrieve reward points from local storage or set to 0 if not present
+        if (localStorage.getItem('rewardPoints')) {
+            rewardPoints = parseInt(localStorage.getItem('rewardPoints'));
+        } else {
+            rewardPoints = 0;
+        }
+        document.getElementById('points').textContent = rewardPoints;
+
+        // Retrieve last check-in time from local storage and calculate elapsed time
+        if (localStorage.getItem('lastCheckInTime')) {
+            lastCheckInTime = parseInt(localStorage.getItem('lastCheckInTime'));
+            const currentTime = Math.floor(new Date().getTime() / 1000);
+            const elapsedTime = currentTime - lastCheckInTime;
+            countdown = Math.max(15 * 60 * 60 - elapsedTime, 0); // 15 hours countdown
+            startTimer();
+        } else {
+            lastCheckInTime = null;
+        }
+
+        updateProgressBar();
+        loadTasks(); // Load tasks from local storage
+        loadAbsentDates(); // Load absent dates from local storage
+    }
+
+    // Function to update reward points and last check-in time
+    function updatePoints() {
+        if (lastCheckInTime && (Math.floor(new Date().getTime() / 1000) - lastCheckInTime < 15 * 60 * 60)) {
+            alert("You can only check in once per 15 hours.");
+            return;
+        }
+
+        document.getElementById('checkInBtn').disabled = true;
+        rewardPoints += 1;
+        document.getElementById('points').textContent = rewardPoints; // Update displayed points
+
+        // Save updated reward points and last check-in time to local storage
+        localStorage.setItem('rewardPoints', rewardPoints.toString());
+        localStorage.setItem('lastCheckInTime', Math.floor(new Date().getTime() / 1000));
+
+        startTimer();
+        updateProgressBar();
+
+        setTimeout(() => {
+            document.getElementById('checkInBtn').disabled = false;
+        }, 15 * 60 * 60 * 1000); // 15 hours
+    }
+
+    // Function to reset reward points and progress bar
+    function resetPoints() {
+        const confirmReset = confirm("Are you sure you want to reset your points?");
+        if (confirmReset) {
+            rewardPoints = 0;
+            localStorage.setItem('rewardPoints', '0');
+            document.getElementById('points').textContent = '0';
+            updateProgressBar();
+        }
+    }
+
+    // Function to start the timer 
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(updateTimer, 1000);
+    }
+
+    // Function to update the timer
+    function updateTimer() {
+        countdown -= 1;
+        const hours = Math.floor(countdown / 3600);
+        const minutes = Math.floor((countdown % 3600) / 60);
+        const seconds = countdown % 60;
+        document.getElementById('countdown').textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+
+        if (countdown <= 0) {
+            clearInterval(timer);
+            countdown = 15 * 60 * 60; // Reset countdown to 15 hours
+            document.getElementById('countdown').textContent = '15:00:00';
+            updateProgressBar();
+        }
+    }
+
+    // Function to format time with leading zeros
+    function formatTime(time) {
+        return time < 10 ? `0${time}` : time;
+    }
+
+    // Function to update the progress bar
+    function updateProgressBar() {
+        const fillWidth = (15 * 60 * 60 - countdown) / (15 * 60 * 60) * 100; // 15 hours
+        document.getElementById('progressBarFill').style.width = fillWidth + '%';
+    }
+
+    // Function to prevent multiple check-ins within one day
+    function preventMultipleCheckIns() {
+        document.getElementById('checkInBtn').disabled = true;
+        setTimeout(() => {
+            document.getElementById('checkInBtn').disabled = false;
+        }, 15 * 60 * 60 * 1000); // 15 hours
+    }
+
+    // Function to load tasks from local storage
+    function loadTasks() {
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = ''; // Clear previous tasks
+
+        if (localStorage.getItem('tasks')) {
+            const tasks = JSON.parse(localStorage.getItem('tasks'));
+            tasks.forEach(task => {
+                const taskDiv = document.createElement('div');
+                taskDiv.classList.add('task');
+
+                const taskContent = document.createElement('div');
+                taskContent.classList.add('task-content');
+                taskContent.textContent = task;
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.onclick = () => {
+                    deleteTask(task);
+                };
+
+                taskDiv.appendChild(taskContent);
+                taskDiv.appendChild(deleteBtn);
+                taskList.appendChild(taskDiv);
+            });
+        }
+    }
+
+    // Function to save task to local storage
+    function saveTask() {
+        const taskInput = document.getElementById('taskInput');
+        const task = taskInput.value.trim();
+        if (task === '') {
+            alert('Please enter a task.');
+            return;
+        }
+
+        let tasks = [];
+        if (localStorage.getItem('tasks')) {
+            tasks = JSON.parse(localStorage.getItem('tasks'));
+        }
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+
+        taskInput.value = ''; // Clear input field
+        loadTasks(); // Reload tasks
+    }
+
+    // Function to delete task from local storage
+    function deleteTask(task) {
+        let tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks = tasks.filter(item => item !== task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        loadTasks(); // Reload tasks
+    }
+
+    // Function to mark the user as absent
+    function markAbsent() {
+        const currentDate = new Date();
+        const dateString = currentDate.toLocaleDateString();
+        const absentDiv = document.getElementById('absentDates');
+        const absentText = dateString + ' - Absent'; // Format: "date - Absent"
+        const absentEntry = document.createElement('div');
+        absentEntry.textContent = absentText;
+        absentEntry.classList.add('absent-entry');
+
+        // Create delete button for absent entry
+        const deleteAbsentBtn = document.createElement('button');
+        deleteAbsentBtn.textContent = 'Delete';
+        deleteAbsentBtn.classList.add('delete-absent-btn');
+        deleteAbsentBtn.onclick = () => {
+            deleteAbsentDate(absentText);
+        };
+        absentEntry.appendChild(deleteAbsentBtn);
+
+        // Append entry to absent dates container
+        absentDiv.appendChild(absentEntry);
+
+        // Save the absent date to local storage
+        let absentDates = [];
+        if (localStorage.getItem('absentDates')) {
+            absentDates = JSON.parse(localStorage.getItem('absentDates'));
+        }
+        absentDates.push(absentText);
+        localStorage.setItem('absentDates', JSON.stringify(absentDates));
+    }
+
+    // Function to delete absent date from local storage
+    function deleteAbsentDate(date) {
+        let absentDates = JSON.parse(localStorage.getItem('absentDates'));
+        absentDates = absentDates.filter(item => item !== date);
+        localStorage.setItem('absentDates', JSON.stringify(absentDates));
+        loadAbsentDates(); // Reload absent dates
+    }
+
+    // Function to load absent dates from local storage
+    function loadAbsentDates() {
+        const absentDiv = document.getElementById('absentDates');
+        absentDiv.innerHTML = ''; // Clear previous absent dates
+
+        if (localStorage.getItem('absentDates')) {
+            const absentDates = JSON.parse(localStorage.getItem('absentDates'));
+            absentDates.forEach(date => {
+                const absentEntry = document.createElement('div');
+                absentEntry.textContent = date;
+                absentEntry.classList.add('absent-entry');
+
+                // Create delete button for absent entry
+                const deleteAbsentBtn = document.createElement('button');
+                deleteAbsentBtn.textContent = 'Delete';
+                deleteAbsentBtn.classList.add('delete-absent-btn');
+                deleteAbsentBtn.onclick = () => {
+                    deleteAbsentDate(date);
+                };
+                absentEntry.appendChild(deleteAbsentBtn);
+
+                // Append entry to absent dates container
+                absentDiv.appendChild(absentEntry);
+            });
+        }
+    }
+
+    // Call necessary functions when window loads
+    window.onload = function () {
+      initializeData(); // Initialize data
+    };
+
+    // Event listeners
+    document.getElementById('checkInBtn').addEventListener('click', () => {
+        updatePoints();
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        resetPoints();
+    });
+
+    document.getElementById('saveTaskBtn').addEventListener('click', () => {
+        saveTask();
+    });
+
+    document.getElementById('absentBtn').addEventListener('click', () => {
+        markAbsent();
+    });
 </script>
-  <script type="text/javascript">
-	atOptions = {
-		'key' : 'ca93276b4324724df24a611bd980ac79',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/ca93276b4324724df24a611bd980ac79/invoke.js"></scr' + 'ipt>');
-</script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'f23304974745404123580b8300499e5b',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/f23304974745404123580b8300499e5b/invoke.js"></scr' + 'ipt>');
-</script>
-<!--  <p>Copyright © 2024 Our School. All rights reserved.</p>-->
-    </footer> 
-          <script type="text/javascript"> var infolinks_pid = 3416868; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
-<script async="async" data-cfasync="false" src="//pl22855605.profitablegatecpm.com/94076130a8cdc4c7ded967a4727e3c8a/invoke.js"></script>
-<div id="container-94076130a8cdc4c7ded967a4727e3c8a"></div>
-<script type="text/javascript">
-var infolinks_pid = 3416868;
-var infolinks_wsid = 0;
-</script>
-<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 </body>
 </html>
