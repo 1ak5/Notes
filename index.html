@@ -1,477 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check-in</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding-bottom: 30px;
-        }
-
-        .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 1);
-            backdrop-filter: blur(100px);
-            max-width: 400px;
-            width: 90%;
-            margin-top: 50px;
-            min-height: 100px;
-            max-height: 2000px;
-            overflow: auto;
-        }
-
-        h1 {
-            color: #fff;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #ccc;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        button {
-            padding: 12px 24px;
-            font-size: 18px;
-            background-color: #ff6600;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:disabled {
-            background-color: #999;
-            cursor: not-allowed;
-        }
-
-        button:hover:disabled {
-            background-color: #999;
-        }
-
-        button:hover {
-            background-color: #e65c00;
-        }
-
-        #rewardPoints {
-            margin-top: 20px;
-            font-size: 20px;
-            color: #ccc;
-        }
-
-        #points {
-            color: #ff6600;
-            font-weight: bold;
-        }
-
-        #resetBtn {
-            margin-top: 20px;
-            background-color: #333;
-            width: 135px;
-            height: 27px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 32.8%;
-            color: orange;
-        }
-
-        #resetBtn:hover {
-            background-color: #555;
-          
-        }
-
-        #checkInBtn {
-            width: 260px;
-            background-color: green;
-            height: 70px;
-        }
-
-        #timer {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #fff;
-        }
-
-        #progressBar {
-            margin-top: 20px;
-            height: 20px;
-            background-color: #555;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        #progressBarFill {
-            height: 100%;
-            background-color: #ff6600;
-            width: 0;
-            transition: width 0.5s;
-        }
-
-        #taskInput {
-            margin-top: 20px;
-            width: 100%;
-            height: 120px;
-            margin-bottom: 20px;
-            font-size: 40px;
-        }
-
-        .task-content {
-            font-size: 40px;
-            color: white;
-        }
-
-        .task {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .delete-btn {
-            background-color: #555;
-            padding: 6px 12px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .delete-btn:hover {
-            background-color: #333;
-        }
-
-        .absent-entry {
-            height: 40px;
-            width: 100%;
-            font-size: 30px;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .delete-absent-btn {
-            background-color: red;
-            padding: 6px 12px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .delete-absent-btn:hover {
-            background-color: #c62828;
-        }
-  
-        #absentBtn{
-          background-color: red;
-          margin-top: 20px;
-          height: 60px;
-          width: 150px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-size: 30px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 25px;
+    }
+    #savedNotes {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      overflow-y: auto;
+      max-height: 200px;
+    }
+    #btnsave{
+      padding: 5px 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin: 30px;
+      height: 70px;
+      width:200px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .div {
+      display: flex;
+      justify-content: center;
+      font-size: 25px;
+    }
+    #div {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <h1>Welcome to our Check-in tool!</h1>
-    <p>It basically helps you to store data on a daily basis.</p>
-    <button id="checkInBtn">Check-in</button><br/>
-    <!-- Absent button and absent dates -->
-    <button id="absentBtn">Absent</button>
-
-    <div id="resetBtn">Reset Attendance</div>
-    <div id="rewardPoints">Total Attendance: <span id="points">0</span></div>
-    <div id="timer">Time remaining: <span id="countdown">15:00:00</span></div>
-    <div id="progressBar">
-        <div id="progressBarFill"></div>
+  <div class="container">
+    <h1>Simple Notes</h1>
+    <textarea id="noteArea" placeholder="here..."></textarea>
+    <div id="div">
+      <button onclick="saveNote()" id="btnsave">Save Note</button>
     </div>
 
-    <!-- Task input and save button -->
-    <textarea id="taskInput" rows="4" cols="30" placeholder="type here..."></textarea>
+    <div class="div">Saved Notes:</div>
+    <div id="savedNotes"></div>
+  </div>
 
-    <br>
-    <button id="saveTaskBtn">Save Dates</button>
-
-    <!-- Task list -->
-    <div id="taskList"></div>
-
-    <div id="absentDates"></div>
-
-</div>
-
-<script>
-    let timer;
-    let countdown = 15 * 60 * 60; // 15 hours countdown in seconds
-    let rewardPoints = 0;
-    let lastCheckInTime;
-
-    // Function to initialize reward points and last check-in time
-    function initializeData() {
-        // Retrieve reward points from local storage or set to 0 if not present
-        if (localStorage.getItem('rewardPoints')) {
-            rewardPoints = parseInt(localStorage.getItem('rewardPoints'));
-        } else {
-            rewardPoints = 0;
-        }
-        document.getElementById('points').textContent = rewardPoints;
-
-        // Retrieve last check-in time from local storage and calculate elapsed time
-        if (localStorage.getItem('lastCheckInTime')) {
-            lastCheckInTime = parseInt(localStorage.getItem('lastCheckInTime'));
-            const currentTime = Math.floor(new Date().getTime() / 1000);
-            const elapsedTime = currentTime - lastCheckInTime;
-            countdown = Math.max(15 * 60 * 60 - elapsedTime, 0); // 15 hours countdown
-            startTimer();
-        } else {
-            lastCheckInTime = null;
-        }
-
-        updateProgressBar();
-        loadTasks(); // Load tasks from local storage
-        loadAbsentDates(); // Load absent dates from local storage
+  <script>
+    function saveNote() {
+      var note = document.getElementById('noteArea').value;
+      var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+      savedNotes.push(note);
+      localStorage.setItem('notes', JSON.stringify(savedNotes));
+      displaySavedNotes();
     }
 
-    // Function to update reward points and last check-in time
-    function updatePoints() {
-        if (lastCheckInTime && (Math.floor(new Date().getTime() / 1000) - lastCheckInTime < 15 * 60 * 60)) {
-            alert("You can only check in once per 15 hours.");
-            return;
-        }
-
-        document.getElementById('checkInBtn').disabled = true;
-        rewardPoints += 1;
-        document.getElementById('points').textContent = rewardPoints; // Update displayed points
-
-        // Save updated reward points and last check-in time to local storage
-        localStorage.setItem('rewardPoints', rewardPoints.toString());
-        localStorage.setItem('lastCheckInTime', Math.floor(new Date().getTime() / 1000));
-
-        startTimer();
-        updateProgressBar();
-
-        setTimeout(() => {
-            document.getElementById('checkInBtn').disabled = false;
-        }, 15 * 60 * 60 * 1000); // 15 hours
+    function deleteNote(index) {
+      var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+      savedNotes.splice(index, 1);
+      localStorage.setItem('notes', JSON.stringify(savedNotes));
+      displaySavedNotes();
     }
 
-    // Function to reset reward points and progress bar
-    function resetPoints() {
-        const confirmReset = confirm("Are you sure you want to reset your points?");
-        if (confirmReset) {
-            rewardPoints = 0;
-            localStorage.setItem('rewardPoints', '0');
-            document.getElementById('points').textContent = '0';
-            updateProgressBar();
-        }
+    function displaySavedNotes() {
+      var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+      var savedNotesDisplay = document.getElementById('savedNotes');
+      savedNotesDisplay.innerHTML = '';
+      savedNotes.forEach(function(note, index) {
+        var noteDiv = document.createElement('div');
+        noteDiv.classList.add('note');
+        noteDiv.innerHTML = `
+          <div>${'•'} ${note}</div>
+          <button onclick="deleteNote(${index})">Delete</button>
+        `;
+        savedNotesDisplay.appendChild(noteDiv);
+      });
     }
 
-    // Function to start the timer 
-    function startTimer() {
-        clearInterval(timer);
-        timer = setInterval(updateTimer, 1000);
-    }
-
-    // Function to update the timer
-    function updateTimer() {
-        countdown -= 1;
-        const hours = Math.floor(countdown / 3600);
-        const minutes = Math.floor((countdown % 3600) / 60);
-        const seconds = countdown % 60;
-        document.getElementById('countdown').textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
-
-        if (countdown <= 0) {
-            clearInterval(timer);
-            countdown = 15 * 60 * 60; // Reset countdown to 15 hours
-            document.getElementById('countdown').textContent = '15:00:00';
-            updateProgressBar();
-        }
-    }
-
-    // Function to format time with leading zeros
-    function formatTime(time) {
-        return time < 10 ? `0${time}` : time;
-    }
-
-    // Function to update the progress bar
-    function updateProgressBar() {
-        const fillWidth = (15 * 60 * 60 - countdown) / (15 * 60 * 60) * 100; // 15 hours
-        document.getElementById('progressBarFill').style.width = fillWidth + '%';
-    }
-
-    // Function to prevent multiple check-ins within one day
-    function preventMultipleCheckIns() {
-        document.getElementById('checkInBtn').disabled = true;
-        setTimeout(() => {
-            document.getElementById('checkInBtn').disabled = false;
-        }, 15 * 60 * 60 * 1000); // 15 hours
-    }
-
-    // Function to load tasks from local storage
-    function loadTasks() {
-        const taskList = document.getElementById('taskList');
-        taskList.innerHTML = ''; // Clear previous tasks
-
-        if (localStorage.getItem('tasks')) {
-            const tasks = JSON.parse(localStorage.getItem('tasks'));
-            tasks.forEach(task => {
-                const taskDiv = document.createElement('div');
-                taskDiv.classList.add('task');
-
-                const taskContent = document.createElement('div');
-                taskContent.classList.add('task-content');
-                taskContent.textContent = task;
-
-                const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('delete-btn');
-                deleteBtn.textContent = 'Delete';
-                deleteBtn.onclick = () => {
-                    deleteTask(task);
-                };
-
-                taskDiv.appendChild(taskContent);
-                taskDiv.appendChild(deleteBtn);
-                taskList.appendChild(taskDiv);
-            });
-        }
-    }
-
-    // Function to save task to local storage
-    function saveTask() {
-        const taskInput = document.getElementById('taskInput');
-        const task = taskInput.value.trim();
-        if (task === '') {
-            alert('Please enter a task.');
-            return;
-        }
-
-        let tasks = [];
-        if (localStorage.getItem('tasks')) {
-            tasks = JSON.parse(localStorage.getItem('tasks'));
-        }
-        tasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-
-        taskInput.value = ''; // Clear input field
-        loadTasks(); // Reload tasks
-    }
-
-    // Function to delete task from local storage
-    function deleteTask(task) {
-        let tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks = tasks.filter(item => item !== task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        loadTasks(); // Reload tasks
-    }
-
-    // Function to mark the user as absent
-    function markAbsent() {
-        const currentDate = new Date();
-        const dateString = currentDate.toLocaleDateString();
-        const absentDiv = document.getElementById('absentDates');
-        const absentText = dateString + ' - Absent'; // Format: "date - Absent"
-        const absentEntry = document.createElement('div');
-        absentEntry.textContent = absentText;
-        absentEntry.classList.add('absent-entry');
-
-        // Create delete button for absent entry
-        const deleteAbsentBtn = document.createElement('button');
-        deleteAbsentBtn.textContent = 'Delete';
-        deleteAbsentBtn.classList.add('delete-absent-btn');
-        deleteAbsentBtn.onclick = () => {
-            deleteAbsentDate(absentText);
-        };
-        absentEntry.appendChild(deleteAbsentBtn);
-
-        // Append entry to absent dates container
-        absentDiv.appendChild(absentEntry);
-
-        // Save the absent date to local storage
-        let absentDates = [];
-        if (localStorage.getItem('absentDates')) {
-            absentDates = JSON.parse(localStorage.getItem('absentDates'));
-        }
-        absentDates.push(absentText);
-        localStorage.setItem('absentDates', JSON.stringify(absentDates));
-    }
-
-    // Function to delete absent date from local storage
-    function deleteAbsentDate(date) {
-        let absentDates = JSON.parse(localStorage.getItem('absentDates'));
-        absentDates = absentDates.filter(item => item !== date);
-        localStorage.setItem('absentDates', JSON.stringify(absentDates));
-        loadAbsentDates(); // Reload absent dates
-    }
-
-    // Function to load absent dates from local storage
-    function loadAbsentDates() {
-        const absentDiv = document.getElementById('absentDates');
-        absentDiv.innerHTML = ''; // Clear previous absent dates
-
-        if (localStorage.getItem('absentDates')) {
-            const absentDates = JSON.parse(localStorage.getItem('absentDates'));
-            absentDates.forEach(date => {
-                const absentEntry = document.createElement('div');
-                absentEntry.textContent = date;
-                absentEntry.classList.add('absent-entry');
-
-                // Create delete button for absent entry
-                const deleteAbsentBtn = document.createElement('button');
-                deleteAbsentBtn.textContent = 'Delete';
-                deleteAbsentBtn.classList.add('delete-absent-btn');
-                deleteAbsentBtn.onclick = () => {
-                    deleteAbsentDate(date);
-                };
-                absentEntry.appendChild(deleteAbsentBtn);
-
-                // Append entry to absent dates container
-                absentDiv.appendChild(absentEntry);
-            });
-        }
-    }
-
-    // Call necessary functions when window loads
-    window.onload = function () {
-      initializeData(); // Initialize data
+    // Load saved notes from local storage
+    window.onload = function() {
+      displaySavedNotes();
     };
-
-    // Event listeners
-    document.getElementById('checkInBtn').addEventListener('click', () => {
-        updatePoints();
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', () => {
-        resetPoints();
-    });
-
-    document.getElementById('saveTaskBtn').addEventListener('click', () => {
-        saveTask();
-    });
-
-    document.getElementById('absentBtn').addEventListener('click', () => {
-        markAbsent();
-    });
-</script>
+  
+  function saveNote() {
+  var note = document.getElementById('noteArea').value;
+  var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+  savedNotes.push(note);
+  localStorage.setItem('notes', JSON.stringify(savedNotes));
+  displaySavedNotes();
+  document.getElementById('noteArea').value = ""; // Clear the text area
+}
+  </script>
 </body>
 </html>
